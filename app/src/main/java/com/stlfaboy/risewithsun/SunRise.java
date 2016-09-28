@@ -14,7 +14,7 @@ import java.lang.Integer;
 
 public class SunRise {
 
-    static int hours, minutes;
+    private static int hours, minutes;
 
     public static void main(String[] args) {
         //String isodate = LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE);
