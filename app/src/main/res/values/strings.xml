@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Rise With Sun</string>
+    <string-array name="locations">
+        <item>Denver</item>
+        <item>New York</item>
+        <item>Los Angeles</item>
+        <item>北京</item>
+        <item>秦皇岛</item>
+        <item>杭州</item>
+    </string-array>
 </resources>

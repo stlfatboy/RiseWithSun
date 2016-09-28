@@ -20,14 +20,19 @@ public class SunRise {
         //String isodate = LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE);
     }
 
-    public void cal(){
+
+    public void cal() {
+        cal(39.733, -104.983);
+    }
+
+    public void cal(double Glat, double Long){
         LocalDate date = LocalDate.now();
         LocalDate odate = LocalDate.of(2000, 1, 1);
 
         //System.out.println(ChronoUnit.DAYS.between(odate, date));
 
-        double Glat = 39.733;
-        double Long = -104.983;
+        //double Glat = 39.733;
+        //double Long = -104.983;
         double UTo = 180;
         double UT = 0.00;
         long days = ChronoUnit.DAYS.between(odate, date);
