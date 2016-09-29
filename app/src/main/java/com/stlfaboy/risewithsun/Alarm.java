@@ -8,10 +8,8 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.PowerManager;
 import android.os.SystemClock;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -23,7 +21,7 @@ import static com.stlfaboy.risewithsun.MainActivity.minutes;
 public class Alarm extends BroadcastReceiver
 {
 
-    MediaPlayer mediaPlayer;
+
     @Override
     public void onReceive(Context context, Intent intent)
     {
@@ -33,12 +31,14 @@ public class Alarm extends BroadcastReceiver
         PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
         //mediaPlayer.setWakeMode(context, PowerManager.PARTIAL_WAKE_LOCK);
         wl.acquire();
-        mediaPlayer= MediaPlayer.create(context, R.raw.cats_meowing);
-        mediaPlayer.start();
-        Toast.makeText(context, "起床了！", Toast.LENGTH_LONG).show();
+
+        //Toast.makeText(context, "起床了！", Toast.LENGTH_LONG).show();
+        intent.setClass(context, AlarmActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
 
         wl.release();
-        cancelAlarm(context);
+        //cancelAlarm(context);
 
 
     }
@@ -50,6 +50,13 @@ public class Alarm extends BroadcastReceiver
         calendar.set(Calendar.HOUR_OF_DAY, hours);
         calendar.set(Calendar.MINUTE, minutes);
         calendar.set(Calendar.SECOND, 0);
+
+        /*Intent i = new Intent(context, Alarm.class);
+        PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
+        AlarmManager am =(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+        am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 6*1000, pi);
+        */
+
         long triggerTime = calendar.getTimeInMillis();
         if (triggerTime  <= System.currentTimeMillis() + 3000)
         {

@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity{
         location.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> arg0, View arg1,
                                        int arg2, long arg3) {
-                String  mselection = location.getSelectedItem().toString();
+                //String  mselection = location.getSelectedItem().toString();
                 //Toast.makeText(getApplicationContext(), "selected "+ mselection, Toast.LENGTH_SHORT).show();
 
                 double[] loc = locationresolver.resolver(String.valueOf(location.getSelectedItem()));

@@ -7,6 +7,8 @@ import android.util.Log;
 
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.temporal.ChronoUnit;
+
+import java.util.Date;
 import java.util.TimeZone;
 //import java.time.format.DateTimeFormatter;
 import java.lang.String;
@@ -64,21 +66,29 @@ public class SunRise {
 
         }
 
-        int tz = TimeZone.getDefault().getRawOffset();
+        TimeZone tz = TimeZone.getDefault();
+        int tzt = tz.getRawOffset();
 
-        double T = UT / 15 + tz / 3600000;
+        if (tz.useDaylightTime()){
+            tzt += 3600 * 1000;
+        }
 
-        //System.out.println(T);
+        double T = UT / 15 + tzt / 3600000;
 
         String[] time = String.valueOf(T).split("\\.");
-
         hours = Integer.parseInt(time[0]);
-        //System.out.println(String.valueOf(hours));
-
         time = String.valueOf((T - hours) * 60).split("\\.");
-
         minutes = Integer.parseInt(time[0]);
-        //System.out.println(minutes);
+
+        /*if (hours < 0 || minutes < 0){
+            if (minutes < 0 ){
+                hours = hours - 1;
+                minutes += 60;
+            }
+            hours = hours - tzt / 3600000;
+
+        }*/
+
     }
     public int getHours(){
         return hours;
