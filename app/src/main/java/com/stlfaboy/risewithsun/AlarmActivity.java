@@ -16,7 +16,7 @@ public class AlarmActivity extends AppCompatActivity {
         SeekBar sb = (SeekBar) findViewById(R.id.seekBar);
 
 
-        final MediaPlayer mp= MediaPlayer.create(this, R.raw.cats_meowing);
+        final MediaPlayer mp= MediaPlayer.create(this, R.raw.ch);
         mp.start();
 
         sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
