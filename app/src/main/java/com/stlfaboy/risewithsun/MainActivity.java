@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity{
             public void onItemSelected(AdapterView<?> arg0, View arg1,
                                        int arg2, long arg3) {
                 String  mselection = location.getSelectedItem().toString();
-                Toast.makeText(getApplicationContext(), "selected "+ mselection, 30).show();
+                //Toast.makeText(getApplicationContext(), "selected "+ mselection, Toast.LENGTH_SHORT).show();
 
                 double[] loc = locationresolver.resolver(String.valueOf(location.getSelectedItem()));
 
