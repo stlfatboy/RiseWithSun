@@ -15,6 +15,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/root_layout"
         android:weightSum="1">
 
         <TextView
@@ -41,15 +42,34 @@
             android:entries="@array/locations"
             android:layout_weight="0.08" />
 
-        <Button
-            android:text="设置闹钟"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_gravity="right"
-            android:textSize="18sp"
-            android:onClick="onClickButton" />
+            android:paddingTop="15sp"
+            android:paddingBottom="15sp">
+
+            <Button
+                android:text="后悔键"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:id="@+id/button2"
+                android:textSize="18sp"
+                android:onClick="onClickButton2"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="设置闹钟"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_gravity="right"
+                android:textSize="18sp"
+                android:onClick="onClickButton"
+                android:layout_weight="1" />
+        </LinearLayout>
 
     </LinearLayout>
 </RelativeLayout>
