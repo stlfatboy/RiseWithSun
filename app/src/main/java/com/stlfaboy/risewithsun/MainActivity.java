@@ -2,12 +2,15 @@ package com.stlfaboy.risewithsun;
 
 import java.util.Calendar;
 
+import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity{
     TextView debug1;
     LinearLayout layout;
     TextView tv1;
+    LinearLayout alarminterface;
+    View alarmview;
     public static int hours;
     public static int minutes;
     private static int alarmnumber = 0;
@@ -35,6 +40,8 @@ public class MainActivity extends AppCompatActivity{
         debug1 = (TextView) findViewById(R.id.textView1);
         final Spinner location = (Spinner) findViewById(R.id.spinner);
         layout  = (LinearLayout) findViewById(R.id.root_layout);
+
+
 
         location.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> arg0, View arg1,
@@ -61,22 +68,31 @@ public class MainActivity extends AppCompatActivity{
         alarm.setAlarm(this);
 
         //add view
-        if (alarmnumber == 0){
-            tv1 = new TextView(view.getContext());
-            tv1.setText("已设置下次日出闹钟："+hours+"点"+minutes+"分");
-            tv1.setTextSize(22);
-            tv1.setTypeface(Typeface.defaultFromStyle(1));
-            tv1.setGravity(0x11);
-            layout.addView(tv1);
-            alarmnumber ++;
+        if (alarminterface == null){
+            if (alarmnumber == 0){
+                /*tv1 = new TextView(view.getContext());
+                tv1.setText("已设置下次日出闹钟："+hours+"点"+minutes+"分");
+                tv1.setTextSize(22);
+                tv1.setTypeface(Typeface.defaultFromStyle(1));
+                tv1.setGravity(0x11);
+                layout.addView(tv1);*/
+                alarminterface = (LinearLayout) findViewById(R.id.alarm_view);
+                alarmview = getLayoutInflater().inflate(R.layout.alarm_interface, layout, false);
+                layout.addView(alarmview);
+                tv1 = (TextView) findViewById(R.id.textView4);
+                tv1.setText(hours+"点"+minutes+"分");
+
+                alarmnumber ++;
+            }
         }
+
     }
 
     public void onClickButton2(View view){
         alarm.cancelAlarm(view.getContext());
         alarmnumber --;
         Toast.makeText(view.getContext(), "闹钟已取消", Toast.LENGTH_SHORT).show();
-        layout.removeView(tv1);
+        layout.removeView(alarmview);
 
     }
 
