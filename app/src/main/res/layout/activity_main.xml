@@ -52,7 +52,7 @@
             android:paddingBottom="15sp">
 
             <Button
-                android:text="后悔键"
+                android:text="取消闹钟"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.AppCompat.Button.Borderless"

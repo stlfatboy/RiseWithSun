@@ -15,6 +15,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 //import com.jakewharton.threetenabp.AndroidThreeTen;
 
 public class MainActivity extends AppCompatActivity{
@@ -24,7 +26,6 @@ public class MainActivity extends AppCompatActivity{
     LocationResolver locationresolver = new LocationResolver();
     TextView debug1;
     LinearLayout layout;
-    TextView tv1;
     LinearLayout alarminterface;
     View alarmview;
     public static int hours;
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity{
                 alarminterface = (LinearLayout) findViewById(R.id.alarm_view);
                 alarmview = getLayoutInflater().inflate(R.layout.alarm_interface, layout, false);
                 layout.addView(alarmview);
-                tv1 = (TextView) findViewById(R.id.textView4);
+                TextView tv1 = (TextView) findViewById(R.id.textView4);
                 tv1.setText(hours+"点"+minutes+"分");
 
                 alarmnumber ++;

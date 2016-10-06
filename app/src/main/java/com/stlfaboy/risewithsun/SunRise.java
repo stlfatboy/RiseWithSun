@@ -80,14 +80,15 @@ public class SunRise {
         time = String.valueOf((T - hours) * 60).split("\\.");
         minutes = Integer.parseInt(time[0]);
 
-        /*if (hours < 0 || minutes < 0){
+        if (hours < 0 || minutes < 0){
             if (minutes < 0 ){
                 hours = hours - 1;
                 minutes += 60;
             }
-            hours = hours - tzt / 3600000;
+            long TargetTz = Math.round((float)(Long) / 15.0);
+            hours = ((int)TargetTz - tzt / 3600000) + hours;
 
-        }*/
+        }
 
     }
     public int getHours(){
