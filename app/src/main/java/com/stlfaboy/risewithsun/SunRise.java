@@ -90,6 +90,13 @@ public class SunRise {
 
         }
 
+        if (hours > 10){
+            long TargetTz = Math.round((float)(Long) / 15.0);
+            hours = ((int)TargetTz - tzt / 3600000) + hours;
+
+        }
+
+
     }
     public int getHours(){
         return hours;
