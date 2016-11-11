@@ -1,4 +1,5 @@
 # RiseWithSun
+![](https://github.com/stlfatboy/RiseWithSun/blob/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)  
 ===
 起因
 ---
